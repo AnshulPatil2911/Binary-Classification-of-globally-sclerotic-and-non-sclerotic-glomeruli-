@@ -4,6 +4,7 @@ For the completion of this task, I have taken inspiration from this Research Pap
 2.	The second approach involves in employing the IBM Watson Visual Recognition Systems
 
 I have followed the first approach. In the research paper, the first approach implements a pipeline that extracts features describing input data and makes the classifications based on these features. The classification is then performed with a supervised ML algorithm, a shallow ANN. Their feature extraction process included extracting two morphological characteristics related to Bowman’s capsule and Bowman’s space. Along with this they extracted 148 textual features based on the multi-radial colour LBP and Haralick algorithms. Because of the number of their extracted features, they implemented PCA to reduce the number of textual features to 95. 
+
 I have implemented a similar strategy just on a lower scale:
 
 •	Data preprocessing:
@@ -24,23 +25,28 @@ I have extracted features in a different notebook, ‘Glormeruli_Image_feature_e
 1.	Then using a custom image data generator, I have loaded the images in batches of size along with their labels.
 2.	I have extracted two types of features: Morphological Characteristics, Textual features
 3.	Morphological characteristics: It involved image segmentation and morphological analysis to quantify features such as area, perimeter, or shape descriptors.
-4.	Textual features: For textual patterns I have extracted 11 features using Local Binary Patterns and Haralick algorithm.
-I have extracted only 11 features contrast to the 148 features extracted in the paper. This discrepancy probably arises because in their implementation they have most likely used an advanced version of Local Binary Pattern(LBP) algorithm, i.e Multi Radial Color Local Binary Pattern(mrcLBP) and possibly they have computed the Haralick features across multiple distances, angles or channels.
+4.	Textual features: For textual patterns I have extracted 8 features using Local Binary Patterns and Haralick algorithm.
+I have extracted only a total of 11 features contrast to the 148 features extracted in the paper. This discrepancy probably arises because in their implementation they have most likely used an advanced version of Local Binary Pattern(LBP) algorithm, i.e Multi Radial Color Local Binary Pattern(mrcLBP) and possibly they have computed the Haralick features across multiple distances, angles or channels.
 
 •	Defining the model:
-1.	I have used Pytorch and it’s classes to build the model. Here’s a summary of the model:
+1.	I have used Pytorch and it’s classes to build the model.
 2.	Two inputs can be given to the model, the image and the corresponding features that are stored in the features.npy file
 3.	It then combines both types of input.
 
 •	Loading the data:
 1.	I have used pytorch’s Dataset class to load both the features and images as input
-2.	I have applied some transformation on the inputs like resizing, data augmentation, normalization and random scaling:
+2.	I have applied some transformation on the inputs like resizing, data augmentation, normalization and random scaling.
 3.	Then the images are loaded along with the corresponding features and labels and the image, feature and labels are returned.
 4.	Some important factors used to process and load the data:
 a)	Data is split into 80% train, 20% test and 20% validation from training
 b)	Batch_size used is 32
 c)	Modified image size is (224*224)
-5.	Shape and size of each set after loading the data using the CustomDataset class:
+5.	Shape and size of each set after loading the data using the CustomDataset class:Training samples: 3684
+a)  Validation samples: 921
+b)  Test samples: 1152
+c)  Batch images shape: torch.Size([32, 3, 224, 224])
+d)  Batch features shape: torch.Size([32, 11])
+e)  Batch labels shape: torch.Size([32])
 
 •	Training process:
 1.	Loss function used is nn.CrossEntropyLoss(weight=class_weights), I have provided the weights of both classes as the dataset is heavily imbalanced.
@@ -49,9 +55,9 @@ c)	Modified image size is (224*224)
 4.	The metrics used are precision, recall and accuracy for both validation and training sets.
 
 •	Evaluation Script:
-The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the imported saved weights of my model you can test the model.
+The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
 
 How to use the evaluation script:
-1.	I have added a ‘config.yaml’, in this file please change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is present in the repository.
+1.	I have added a ‘config.yaml’, in this file please, I have added a relative path to it './data/...' change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is present in the repository.
 2.	Based on the images that you provide, the code will generate a features.npy and a labels.npy file, which will be saved in the runtime.
 3.	At the end of the execution, a ‘evaluation.csv’ file will be generated with the image name and the predicted value.
