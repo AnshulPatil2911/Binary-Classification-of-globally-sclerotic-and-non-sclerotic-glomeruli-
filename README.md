@@ -32,7 +32,8 @@ I have extracted only a total of 11 features contrast to the 148 features extrac
 1.	I have used Pytorch and it’s classes to build the model.
 2.	Two inputs can be given to the model, the image and the corresponding features that are stored in the features.npy file
 3.	It then combines both types of input.
-
+   
+![Model Architecture](images/model.png)
 ##  Loading the data:
 1.	I have used pytorch’s Dataset class to load both the features and images as input
 2.	I have applied some transformation on the inputs like resizing, data augmentation, normalization and random scaling.
@@ -54,6 +55,12 @@ I have extracted only a total of 11 features contrast to the 148 features extrac
 2.	Optimizer used is Adam, learning rate is 5e-4.
 3.	I have trained the model for 50 epochs.
 4.	The metrics used are precision, recall and accuracy for both validation and training sets.
+
+##  Performance Metrics:
+The model's performance is evaluated based on accuracy, precision and recall. These metrics are chosen to provide a comprehensive understanding of the model's ability to classify sclerotic and non-sclerotic glomeruli accurately:
+- Accuracy: 80%
+- Precision: 47% 
+- Recall: 56%
 
 ## Evaluation Script:
 The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
