@@ -38,15 +38,16 @@ I have extracted only a total of 11 features contrast to the 148 features extrac
 2.	I have applied some transformation on the inputs like resizing, data augmentation, normalization and random scaling.
 3.	Then the images are loaded along with the corresponding features and labels and the image, feature and labels are returned.
 4.	Some important factors used to process and load the data:
-a)	Data is split into 80% train, 20% test and 20% validation from training
-b)	Batch_size used is 32
-c)	Modified image size is (224*224)
-5.	Shape and size of each set after loading the data using the CustomDataset class:Training samples: 3684
-a)  Validation samples: 921
-b)  Test samples: 1152
-c)  Batch images shape: torch.Size([32, 3, 224, 224])
-d)  Batch features shape: torch.Size([32, 11])
-e)  Batch labels shape: torch.Size([32])
+- Data is split into 80% train, 20% test and 20% validation from training
+- Batch_size used is 32
+- Modified image size is (224*224)
+5.	Shape and size of each set after loading the data using the CustomDataset class:
+- Training samples: 3684
+- Validation samples: 921
+- Test samples: 1152
+- Batch images shape: torch.Size([32, 3, 224, 224])
+- Batch features shape: torch.Size([32, 11])
+- Batch labels shape: torch.Size([32])
 
 ##  Training process:
 1.	Loss function used is nn.CrossEntropyLoss(weight=class_weights), I have provided the weights of both classes as the dataset is heavily imbalanced.
