@@ -65,6 +65,11 @@ The model's performance is evaluated based on accuracy, precision and recall. Th
   
    ![ROC Curve](images/ROC_curve.png)
 
+##   How to run the Model.ipynb
+1. To run this notebook you need to provide the path of the public.csv, the two folders path, feature.npy and labels.npy files, that should be present in the data folder in the repository.
+2. The two numpy files which I have already uploaded in the data folder, contain textual and morphological features that I have already extracted from the given dataset using this notebook(Glormeruli_Image_feature_extraction.ipynb), you don't need to run it again.
+3. Once all the paths are updated in the config.yaml file you can directly run the notebook 
+
 ## Evaluation Script:
 The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
 
