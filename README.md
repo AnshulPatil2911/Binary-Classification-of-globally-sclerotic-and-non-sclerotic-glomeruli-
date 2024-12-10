@@ -58,7 +58,7 @@ e)  Batch labels shape: torch.Size([32])
 The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
 
 ###  How to use the evaluation script:
-1.	I have added a ‘config.yaml’, in the repository, I have added a relative path to it './data/...' change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is present in the repository.
+1.	I have added a ‘config.yaml’ in the repository, in the config file,I have given a relative path to it './data/...' change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is present in the repository.
 2.	The public.csv file and the two image folders need to be added in the data folder on the repository and the model.pth shared file need to be added in the models folder.
 3.	Based on the images that you provide, the code will generate a features.npy and a labels.npy file, which will be saved in the runtime.
 4.	At the end of the execution, a ‘evaluation.csv’ file will be generated with the image name and the predicted value.
