@@ -33,7 +33,6 @@ I have extracted only a total of 11 features contrast to the 148 features extrac
 2.	Two inputs can be given to the model, the image and the corresponding features that are stored in the features.npy file
 3.	It then combines both types of input.
    
-![Model Architecture](images/model.png)
 ##  Loading the data:
 1.	I have used pytorch’s Dataset class to load both the features and images as input
 2.	I have applied some transformation on the inputs like resizing, data augmentation, normalization and random scaling.
