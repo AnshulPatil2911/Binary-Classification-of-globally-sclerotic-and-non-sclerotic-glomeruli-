@@ -66,15 +66,17 @@ The model's performance is evaluated based on accuracy, precision and recall. Th
    ![ROC Curve](images/ROC_curve.png)
 
 ##   How to run the Model.ipynb
-1. To run this notebook you need to provide the path of the public.csv, the two folders path, feature.npy and labels.npy files, that should be present in the data folder in the repository.
+
+1. To run this notebook you need to provide the path of the public.csv, the two shared image folders path, feature.npy and labels.npy files, that should be present in the data folder in the repository.
 2. The two numpy files which I have already uploaded in the data folder, contain textual and morphological features that I have already extracted from the given dataset using this notebook(Glormeruli_Image_feature_extraction.ipynb), you don't need to run it again.
-3. Once all the paths are updated in the config.yaml file you can directly run the notebook 
+3. You need to add to the two shared image folders and the public.csv in the data folder on the repository.
+4. Once all the paths are updated in the config.yaml file you can directly run the notebook 
 
 ## Evaluation Script:
 The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
 
 ###  How to use the evaluation script:
-1.	I have added a ‘config.yaml’ in the repository, in the config file,I have given a relative path to it './data/...' change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is present in the repository.
+1.	I have added a ‘config.yaml’ in the repository,I have given a relative path to it './data/...' change the path according to each file respectively, you need to provide the path to the public.csv, the two image folders and the model.pth file which is shared via the google drive.
 2.	The public.csv file and the two image folders need to be added in the data folder on the repository and the model.pth shared file need to be added in the models folder.
 3.	Based on the images that you provide, the code will generate a features.npy and a labels.npy file, which will be saved in the runtime.
 4.	At the end of the execution, a ‘evaluation.csv’ file will be generated with the image name and the predicted value.
