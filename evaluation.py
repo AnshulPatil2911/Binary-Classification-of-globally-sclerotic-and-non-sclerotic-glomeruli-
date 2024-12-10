@@ -37,7 +37,7 @@ import yaml
 import yaml
 
 # Load config.yaml
-with open("/kaggle/input/config3/Data Paths.yaml", "r") as file:
+with open("./config.yaml", "r") as file:
     config = yaml.safe_load(file)
 
 excel_path = config['csv_path']
