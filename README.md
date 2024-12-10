@@ -62,6 +62,8 @@ The model's performance is evaluated based on accuracy, precision and recall. Th
 - Accuracy: 80%
 - Precision: 47% 
 - Recall: 56%
+- 
+   ![ROC Curve](images/ROC_curve.png)
 
 ## Evaluation Script:
 The evaluation script contains code for both feature extraction and model prediction. I have used two separate custom dataset generators for the two tasks. Then using the shared saved weights of my model you can test the model.
