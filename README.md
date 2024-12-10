@@ -62,7 +62,7 @@ The model's performance is evaluated based on accuracy, precision and recall. Th
 - Accuracy: 80%
 - Precision: 47% 
 - Recall: 56%
-- 
+  
    ![ROC Curve](images/ROC_curve.png)
 
 ## Evaluation Script:
